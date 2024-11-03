@@ -1,101 +1,80 @@
-import Image from "next/image";
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { SquareArrowOutUpRight } from "lucide-react"
+import Link from "next/link"
+
+const apps = [
+  {
+    title: "Ice-cream Meter",
+    description: "Let’s encourage discipline in your team in a fun way.",
+    link: {
+      label: "ice-cream-meter",
+      url: "/ice-cream-meter"
+    }
+  },
+  {
+    title: "Let's Poll",
+    description: "Unable to take a decision? let’s take a poll!",
+    link: {
+      label: "lets-poll",
+      url: "/lets-poll"
+    }
+  },
+  {
+    title: "Retro",
+    description: "Reflect on your journey and celebrate your progress.",
+    link: {
+      label: "retro",
+      url: "https://retrospective-umber.vercel.app/"
+    }
+  }
+
+]
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className=" flex flex-col gap-4 justify-center w-full m-auto max-w-7xl bg-white min-h-screen px-4">
+      <h1 className=" flex gap-1 items-center text-4xl">Hello and welcome to
+        <span className="ml-2 mt-2">
+          <svg width="107" height="32" viewBox="0 0 107 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.472661 25.0329C0.157554 25.0329 0 24.8764 0 24.5634V0.469483C0 0.156494 0.157554 0 0.472661 0H13.6504C13.9656 0 14.1231 0.156494 14.1231 0.469483V5.65258C14.1231 5.96557 13.9656 6.12207 13.6504 6.12207H8.81698C7.81094 6.12207 6.99538 6.93762 6.99538 7.94366V7.94366C6.99538 8.9497 7.81094 9.76526 8.81698 9.76526H13.2912C13.6063 9.76526 13.7639 9.92175 13.7639 10.2347V14.7981C13.7639 15.1111 13.6063 15.2676 13.2912 15.2676H8.80759C7.80674 15.2676 6.99538 16.079 6.99538 17.0798V17.0798C6.99538 18.0807 7.80673 18.892 8.80759 18.892H13.6504C13.9656 18.892 14.1231 19.0485 14.1231 19.3615V24.5634C14.1231 24.8764 13.9656 25.0329 13.6504 25.0329H0.472661Z" fill="#444444" />
+            <path d="M17.8282 25.0329C17.5131 25.0329 17.3555 24.8764 17.3555 24.5634V4.84507C17.3555 4.53208 17.5131 4.37559 17.8282 4.37559H27.9431C28.233 4.37559 28.4851 4.482 28.6994 4.69484L32.4807 8.4507C32.6949 8.65102 32.8021 8.90141 32.8021 9.20188V24.5634C32.8021 24.8764 32.6445 25.0329 32.3294 25.0329H26.8655C26.5503 25.0329 26.3928 24.8764 26.3928 24.5634V10.892C26.3928 10.3286 26.1092 10.0469 25.542 10.0469V10.0469C24.5605 10.0469 23.7648 10.8426 23.7648 11.8242V24.5634C23.7648 24.8764 23.6072 25.0329 23.2921 25.0329H17.8282Z" fill="#444444" />
+            <path d="M41.4503 32C41.1352 32 40.9776 31.8435 40.9776 31.5305V28.3756C40.9776 28.1252 41.0596 27.9624 41.2234 27.8873L42.9528 27.0729C43.2614 26.9275 43.5571 26.7561 43.8366 26.5605L45.0803 25.6901C45.2568 25.5649 45.345 25.3709 45.345 25.108V24.7683C45.345 24.0403 44.473 23.6668 43.9459 24.169V24.169C43.7317 24.3818 43.4796 24.4883 43.1897 24.4883L40.5239 24.5446C40.234 24.5446 39.9819 24.4444 39.7676 24.2441L36.1754 20.6385C35.9611 20.4382 35.854 20.1878 35.854 19.8873V9.20188C35.854 8.90141 35.9611 8.65102 36.1754 8.4507L39.9567 4.69484C40.171 4.482 40.423 4.37559 40.7129 4.37559H50.8279C51.143 4.37559 51.3005 4.53208 51.3005 4.84507V27.5493C51.3005 27.8748 51.1934 28.1252 50.9791 28.3005L48.8049 29.9718L46.0067 31.7371C45.8555 31.8247 45.7231 31.8873 45.6097 31.9249C45.5089 31.975 45.3639 32 45.1749 32H41.4503ZM43.2086 19.5117H43.9648C44.3052 19.5117 44.5446 19.4366 44.6833 19.2864C44.8219 19.1236 44.8913 18.8732 44.8913 18.5352V11.2789C44.8913 10.3496 44.1379 9.59624 43.2086 9.59624V9.59624C42.8683 9.59624 42.6225 9.67136 42.4712 9.8216C42.3326 9.97183 42.2633 10.216 42.2633 10.554V18.5352C42.2633 18.8732 42.3326 19.1236 42.4712 19.2864C42.6225 19.4366 42.8683 19.5117 43.2086 19.5117Z" fill="#444444" />
+            <path d="M59.2132 25.0329C58.9233 25.0329 58.6712 24.9264 58.4569 24.7136L54.6756 20.9577C54.4614 20.7574 54.3542 20.507 54.3542 20.2066V9.20188C54.3542 8.90141 54.4614 8.65102 54.6756 8.4507L58.4569 4.69484C58.6712 4.482 58.9233 4.37559 59.2132 4.37559H69.3281C69.6432 4.37559 69.8008 4.53208 69.8008 4.84507V24.5634C69.8008 24.8764 69.6432 25.0329 69.3281 25.0329H65.0175C65.0063 25.0329 64.9953 25.0327 64.9845 25.0325C64.7352 25.0272 64.5138 24.8893 64.3368 24.7136V24.7136V24.7136C63.8137 24.194 62.9693 24.194 62.4462 24.7136V24.7136C62.2319 24.9264 61.9798 25.0329 61.6899 25.0329H59.2132ZM61.7088 19.8122H62.4651C62.8054 19.8122 63.0449 19.7371 63.1835 19.5869C63.3222 19.4366 63.3915 19.1925 63.3915 18.8545V11.2789C63.3915 10.3496 62.6381 9.59624 61.7088 9.59624V9.59624C61.3685 9.59624 61.1227 9.67136 60.9715 9.8216C60.8328 9.97183 60.7635 10.216 60.7635 10.554V18.8545C60.7635 19.1925 60.8328 19.4366 60.9715 19.5869C61.1227 19.7371 61.3685 19.8122 61.7088 19.8122Z" fill="#444444" />
+            <path d="M78.4508 32C78.1357 32 77.9781 31.8435 77.9781 31.5305V28.3756C77.9781 28.1252 78.06 27.9624 78.2239 27.8873L79.9533 27.0729C80.2619 26.9275 80.5576 26.7561 80.837 26.5605L82.0808 25.6901C82.2573 25.5649 82.3455 25.3709 82.3455 25.108V24.7683C82.3455 24.0403 81.4735 23.6668 80.9464 24.169V24.169C80.7322 24.3818 80.4801 24.4883 80.1902 24.4883L77.5244 24.5446C77.2345 24.5446 76.9824 24.4444 76.7681 24.2441L73.1759 20.6385C72.9616 20.4382 72.8545 20.1878 72.8545 19.8873V9.20188C72.8545 8.90141 72.9616 8.65102 73.1759 8.4507L76.9572 4.69484C77.1714 4.482 77.4235 4.37559 77.7134 4.37559H87.8284C88.1435 4.37559 88.301 4.53208 88.301 4.84507V27.5493C88.301 27.8748 88.1939 28.1252 87.9796 28.3005L85.8054 29.9718L83.0072 31.7371C82.856 31.8247 82.7236 31.8873 82.6102 31.9249C82.5094 31.975 82.3644 32 82.1753 32H78.4508ZM80.2091 19.5117H80.9653C81.3057 19.5117 81.5451 19.4366 81.6838 19.2864C81.8224 19.1236 81.8918 18.8732 81.8918 18.5352V11.2789C81.8918 10.3496 81.1384 9.59624 80.2091 9.59624V9.59624C79.8688 9.59624 79.623 9.67136 79.4717 9.8216C79.3331 9.97183 79.2638 10.216 79.2638 10.554V18.5352C79.2638 18.8732 79.3331 19.1236 79.4717 19.2864C79.623 19.4366 79.8688 19.5117 80.2091 19.5117Z" fill="#444444" />
+            <path d="M99.5601 25.0329C99.4467 25.0329 99.3269 25.0203 99.2009 24.9953C99.0875 24.9577 98.974 24.9202 98.8606 24.8826L95.4574 23.6995L91.8274 22.2723C91.5123 22.1596 91.3547 21.8466 91.3547 21.3333V9.20188C91.3547 8.90141 91.4619 8.65102 91.6761 8.4507L95.4574 4.69484C95.6717 4.482 95.9238 4.37559 96.2137 4.37559H102.131C102.421 4.37559 102.673 4.482 102.888 4.69484L106.669 8.4507C106.871 8.65102 106.971 8.90141 106.971 9.20188V12.1724C106.971 14.7842 104.854 16.9014 102.242 16.9014H98.6385C98.0981 16.9014 97.6551 17.3298 97.637 17.8699V17.8699C97.6225 18.3009 97.8854 18.6928 98.2896 18.8429L99.517 19.2988C99.6965 19.3655 99.8824 19.4137 100.072 19.4427L104.079 20.0563C104.255 20.0814 104.343 20.2441 104.343 20.5446V24.5634C104.343 24.8764 104.186 25.0329 103.871 25.0329H99.5601ZM99.2576 13.6714H99.4656C100.02 13.6714 100.455 13.4836 100.77 13.108C101.085 12.7324 101.243 12.2066 101.243 11.5305V11.2864C101.243 10.6228 101.085 10.1033 100.77 9.7277C100.455 9.33959 100.02 9.14554 99.4656 9.14554H99.2387C98.7093 9.14554 98.2871 9.33959 97.972 9.7277C97.6695 10.1033 97.5182 10.6228 97.5182 11.2864V11.5305C97.5182 12.2066 97.6695 12.7324 97.972 13.108C98.2745 13.4836 98.703 13.6714 99.2576 13.6714Z" fill="#444444" />
+          </svg>
+        </span>!</h1>
+      <p className=" text-lg">Your all-in-one space to connect, collaborate and celebrate...</p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      <div className=" mt-12 flex flex-wrap gap-6">
+        {
+          apps.map((app, index) => {
+            return (
+              <Card className="w-[350px] flex justify-between flex-col" key={index}>
+                <CardHeader>
+                  <CardTitle>{app.title}</CardTitle>
+                  <CardDescription>{app.description}</CardDescription>
+                </CardHeader>
+                <CardFooter>
+                  <Link href={app.link.url} target="_blank">
+                    <Button variant="outline">
+                      <SquareArrowOutUpRight /><p className="underline">{app.link.label}</p>
+                    </Button>
+                  </Link>
+                </CardFooter>
+              </Card>
+            )
+          })
+        }
+
+      </div>
+    </main>
   );
 }
