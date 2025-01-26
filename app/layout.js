@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import Link from "next/link";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,6 +26,9 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased text-neutral-700`}
       >
         {children}
+        <footer>
+          <p className=" text-ice_pink text-center my-6 text-sm ">Designed & Developed By <Link href="/" className="hover:text-ice_yellow cursor-pointer">Nitish Sharma</Link>.</p>
+        </footer>
         <Toaster />
       </body>
     </html>

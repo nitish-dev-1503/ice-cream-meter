@@ -13,7 +13,7 @@ export const description = "A bar chart"
 
 const chartConfig = {
     penalty: {
-        color: "hsl(var(--chart-2))",
+        color: "hsl(var(--chart-6))",
     },
 }
 
@@ -22,8 +22,8 @@ const renderCustomLabel = (props) => {
     const radius = 24;
 
     return index === 1 ? <g className="">
-        <circle cx={x + width / 2} cy={y - radius - 6} r={radius} fill="hsl(var(--chart-1))" />
-        <IceCreamCone x={x + width / 2 - 11} y={y - radius - 16} stroke="#fff" />
+        <circle cx={x + width / 2} cy={y - radius - 6} r={radius} fill="hsl(var(--chart-7))" />
+        <IceCreamCone x={x + width / 2 - 11} y={y - radius - 16} stroke="hsl(var(--chart-6))" />
     </g>
         : <g></g>
 

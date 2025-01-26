@@ -9,6 +9,8 @@ module.exports = {
   theme: {
   	extend: {
   		colors: {
+			ice_pink: '#F7437C',
+			ice_yellow: '#FFAC26',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

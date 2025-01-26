@@ -5,11 +5,12 @@ import Link from "next/link"
 export default function IceCreamMeter() {
     return (
         <main className=" flex flex-col gap-4 justify-start my-32 w-full m-auto max-w-7xl bg-white min-h-screen px-4">
-            <div className=" flex gap-2 items-center">
-                <Link href="/" className="hover:underline text-sm ">Engage</Link>/
+            <div className=" flex gap-4 items-center">
+                <img src="/logo.svg" alt="Ice-cream Meter" className="w-16 h-16" />
+                <Link href="/" className="hover:underline text-sm ">Home</Link>/
             </div>
-            <h1 className=" flex gap-1 items-center text-3xl">Ice-cream Meter</h1>
-            <p className=" text-lg">Let’s encourage discipline in your team in a fun way.</p>
+            <h1 className=" flex gap-1 items-center text-3xl text-ice_pink">Ice-cream Meter</h1>
+            <p className=" text-lg text-ice_yellow">Let’s encourage discipline in your team in a fun way.</p>
 
 
             <div className="max-w-xl flex flex-col gap-12 my-12">
